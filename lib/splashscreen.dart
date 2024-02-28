@@ -23,11 +23,11 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
           child: Image.network(
-              "https://thumbs.dreamstime.com/b/quiz-icon-isolated-dark-background-quiz-icon-isolated-dark-background-simple-vector-logo-235742772.jpg"),
+              "https://t3.ftcdn.net/jpg/01/75/51/82/360_F_175518238_4cw0NHrqrVb61e9KsxslBAqvlkfrtGPn.jpg"),
         ),
       ]),
     );
