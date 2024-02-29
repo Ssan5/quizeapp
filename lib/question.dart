@@ -12,17 +12,18 @@ class Question extends StatefulWidget {
 class _QuestionState extends State<Question> {
 
   int no=0;
+  String result="";
   List question=[
-    Quiz(qus: 'Bats are blind.',ans:false),
-    Quiz(qus: 'Sharks are mammals.',ans: false),
-    Quiz(qus: 'Pigs roll in the mud because they dont like being clean.',ans:false),
-    Quiz(qus: ' It takes a sloth two weeks to digest a meal.',ans: true),
-    Quiz(qus: ' Galapagos tortoises sleep up to 16 hours a day.',ans: true),
-    Quiz(qus: ' Herbivores are animal eaters.',ans: false),
-    Quiz(qus: ' Arachnophobia is the fear of bathing.',ans:  false),
-    Quiz(qus: ' Butterflies taste things with their wings.',ans: false),
-    Quiz(qus: 'Lightning can’t strike in the same place twice',ans:false),
-    Quiz(qus: 'Scotland’s national animal is a unicorn',ans:true),
+    Quiz(qus: '1. Bats are blind.',ans:false),
+    Quiz(qus: '2. Sharks are mammals.',ans: false),
+    Quiz(qus: '3. Pigs roll in the mud because they dont like being clean.',ans:false),
+    Quiz(qus: '4. It takes a sloth two weeks to digest a meal.',ans: true),
+    Quiz(qus: '5. Galapagos tortoises sleep up to 16 hours a day.',ans: true),
+    Quiz(qus: '6. Herbivores are animal eaters.',ans: false),
+    Quiz(qus: '7. Arachnophobia is the fear of bathing.',ans:  false),
+    Quiz(qus: '8.  Butterflies taste things with their wings.',ans: false),
+    Quiz(qus: '9. Lightning can’t strike in the same place twice',ans:false),
+    Quiz(qus: '10. Scotland’s national animal is a unicorn',ans:true),
 
   ];
   void nextqus(){
@@ -30,6 +31,13 @@ class _QuestionState extends State<Question> {
     {
       no++;
     }
+  }
+  void answer( bool check)
+  { if (check==question[no].ans)
+    result= "Correct ✅  ";
+     else{
+       result="Wrong ❌";
+  }
   }
   @override
   Widget build(BuildContext context) {
@@ -54,6 +62,7 @@ class _QuestionState extends State<Question> {
           ),
           onPressed: () {
             setState(() {
+              answer(true);
               nextqus();
             });},
           child: Text('True'),
@@ -66,10 +75,21 @@ class _QuestionState extends State<Question> {
           ),
           onPressed: () {
             setState(() {
+              answer(false);
+
                nextqus();
             });
           },
           child: Text(' False'),
+        ),
+        SizedBox(height: 50),
+        Text(
+        result,
+    textAlign: TextAlign.center,
+    style: TextStyle(
+    color: Colors.black45,
+    fontSize: 20.0,
+    ),
         ),
       ]),
     );
